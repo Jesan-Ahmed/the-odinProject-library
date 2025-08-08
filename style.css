@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body{
+    height: 100%;
+    overflow-x: hidden;
+}
+.container{
+    min-height: 100vh;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 370px auto;
+    grid-template-rows: 70px auto;
+    color: azure;
+}
+header{
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-start;
+    height: 70px;
+    padding-top: 10px;
+    background-color: gray;
+}
+header h1{
+    height: 50px;
+    padding-top: 10px;
+    padding-left: 20px;
+    color: black;
+}
+header img{
+    margin-left: 20px;
+}
+form *{
+    display: block;
+}
+fieldset{
+    padding: 20px;
+    border: none;
+}
+fieldset *{
+    height: 40px;
+    width: 320px;
+    padding: auto;
+}
+legend{
+    height: auto;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    font-size: 40px;
+}
+label{
+    padding-top: 15px;
+    font-size: 20px;
+}
+input{
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+input:last-of-type{
+    width: 20px;
+}
+button{
+    margin: auto;
+    background-color: rgba(240, 248, 255, 0.211) ;
+    color: #fff;
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+}
+.book-container{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: rgba(240, 248, 255, 0.211);
+    padding: 20px;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 0 0 250px;
+    gap: 20px;
+    height: 400px;
+    padding: 20px;
+    background-color: gray;
+    color: black;
+    border-radius: 10px;
+    /* box-shadow: 3px 3px black; */
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+.book img{
+    width: 60px;
+}
+.book .book-info{
+    font-size: 20px;
+    text-align: center;
+}
+
+.book-btn{
+    display: flex;
+    flex-wrap: row;
+    justify-content: space-between;
+    flex-basis: 60px;
+    gap: 20px;
+    height: 40px;
+}
+.book-btn button{
+    height: 30px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+.book-btn button:first-of-type{
+    background-color: black;
+    color:#fff;
+}
+.book-btn button:last-of-type{
+    background-color: #fff;
+    color: black;
+}
+
+.book-btn button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
