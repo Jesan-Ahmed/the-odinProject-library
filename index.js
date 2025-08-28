@@ -4,17 +4,32 @@ const form = document.querySelector("#form");
 const myLibrary = [];
 
 /*Book constructor */
-function Book(title, author, page, hasRead){
-    this.uuid = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.page = page;
-    this.hasRead = hasRead;
+// function Book(title, author, page, hasRead){
+//     this.uuid = crypto.randomUUID();
+//     this.title = title;
+//     this.author = author;
+//     this.page = page;
+//     this.hasRead = hasRead;
+// }
+
+// Book.prototype.toggle = function(){
+//     this.hasRead = !this.hasRead;
+// }
+
+/* Book class */
+class Book{
+    constructor(title, author, page, hasRead){
+        this.uuid = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.page = page;
+        this.hasRead = hasRead;
+    }
+    toggle(){
+        this.hasRead = !this.hasRead;
+    }
 }
 
-Book.prototype.toggle = function(){
-    this.hasRead = !this.hasRead;
-}
 
 
 /* Add books to list */
