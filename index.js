@@ -16,6 +16,7 @@ Book.prototype.toggle = function(){
     this.hasRead = !this.hasRead;
 }
 
+
 /* Add books to list */
 function addBookToLibrary(title, author, page, hasRead){
     myLibrary.push( new Book(title, author, page, hasRead));
