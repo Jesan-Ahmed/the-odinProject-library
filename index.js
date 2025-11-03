@@ -1,20 +1,12 @@
 const bookContainer = document.querySelector(".book-container");
 const form = document.querySelector("#form");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const page = document.querySelector("#page");
+const hasRead = document.querySelector("#status");
 
 const myLibrary = [];
 
-/*Book constructor */
-// function Book(title, author, page, hasRead){
-//     this.uuid = crypto.randomUUID();
-//     this.title = title;
-//     this.author = author;
-//     this.page = page;
-//     this.hasRead = hasRead;
-// }
-
-// Book.prototype.toggle = function(){
-//     this.hasRead = !this.hasRead;
-// }
 
 /* Book class */
 class Book{
@@ -97,46 +89,62 @@ function addBookToDisplay(){
     });
 }
 
+title.addEventListener("input", e=>{
+    if(!title.validity.valid){
+        showError();
+    }
+});
+author.addEventListener("input", e=>{
+    if(!author.validity.valid){
+        showError();
+    }
+});
+page.addEventListener("input", e=>{
+    if(!page.validity.valid){
+        showError();
+    }
+})
+
 form.addEventListener("submit", e=>{
     e.preventDefault();
 
-    /* Value from the form */
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const page = document.querySelector("#page").value;
-    const hasRead = document.querySelector("#status").checked;
+    showError();
+    if(!form.reportValidity()){
+        return;
+    }
 
-    addBookToLibrary(title, author, page, hasRead);
+    /* Value from the form */
+    const titleValue = title.value;
+    const authorValue = author.value;
+    const pageValue = page.value;
+    const hasReadValue = hasRead.checked;
+
+    addBookToLibrary(titleValue, authorValue, pageValue, hasReadValue);
 
     addBookToDisplay();
 
     form.reset();
 });
 
+function showError(){
+
+    title.setCustomValidity("");
+    author.setCustomValidity("");
+    page.setCustomValidity("");
+
+    if(title.validity.valueMissing){
+        title.setCustomValidity("The book title must be filled!");
+    }
+    
+    if(author.validity.valueMissing){
+        author.setCustomValidity("The author name must be filled!");
+    }
+    
+    if(page.validity.valueMissing){
+        page.setCustomValidity("The number of pages must be filled!");
+    }
+    
+    
+}
+
 addBookToDisplay();
-
-
-
-
-
-
-// function addBookToDisplay(books){
-
-//     function createBook(book){
-//         const div = document.createElement("div");
-//         div.classList.add("book");
-//         createBookContent(book, div);
-//         addButtonToBook(div);
-//         bookContainer.appendChild(div);
-//     }
-
-//     for(const book of books){
-//         createBook(book);
-//     }
-// }
-
-// form.addEventListener("submit", e =>{
-//     e.preventDefault();
-//     addBookToLibrary(title.value, author.value, page.value, hasRead.checked);
-// });
-
